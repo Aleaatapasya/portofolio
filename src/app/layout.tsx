@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Portofolio Alea Atapasya | Front-End Developer & UI/UX Designer",
+  title: "Portofolio Alea Atapasya",
   description: "Portofolio profesional Alea Atapasya - Front-End Developer, UI/UX Designer, Digital Designer, dan Content Creator.",
 };
 
