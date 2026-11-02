@@ -839,38 +839,40 @@ export default function PortfolioPage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {certificates.map((cert) => (
-              <div
-                key={cert.id}
-                onClick={() => setActiveModal({
-                  title: cert.title,
-                  category: `Penerbit: ${cert.issuer}`,
-                  period: cert.date,
-                  img: cert.img,
-                  desc: `Sertifikat resmi kompetensi ${cert.title} yang diterbitkan oleh ${cert.issuer}.`
-                })}
-                className="group cursor-pointer rounded-2xl bg-[#EAF5FF]/60 hover:bg-white p-3 border border-[#8CC6EE]/30 shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-white border border-[#8CC6EE]/40 mb-2">
-                  <Image
-                    src={cert.img}
-                    alt={cert.title}
-                    fill
-                    sizes="(max-width: 640px) 150px, 300px"
-                    className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="space-y-0.5">
-                  <h3 className="font-bold text-[11px] sm:text-xs text-[#06275B] line-clamp-2 group-hover:text-[#0755A5] transition-colors">
-                    {cert.title}
-                  </h3>
-                  <div className="flex justify-between items-center text-[10px] text-slate-500">
-                    <span className="font-medium text-[#1265B3]">{cert.issuer}</span>
-                    <span>{cert.date}</span>
+            {certificates
+              .filter((cert): cert is NonNullable<typeof cert> => cert != null)
+              .map((cert) => (
+                <div
+                  key={cert.id}
+                  onClick={() => setActiveModal({
+                    title: cert.title,
+                    category: `Penerbit: ${cert.issuer}`,
+                    period: cert.date,
+                    img: cert.img,
+                    desc: `Sertifikat resmi kompetensi ${cert.title} yang diterbitkan oleh ${cert.issuer}.`
+                  })}
+                  className="group cursor-pointer rounded-2xl bg-[#EAF5FF]/60 hover:bg-white p-3 border border-[#8CC6EE]/30 shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-white border border-[#8CC6EE]/40 mb-2">
+                    <Image
+                      src={cert.img}
+                      alt={cert.title}
+                      fill
+                      sizes="(max-width: 640px) 150px, 300px"
+                      className="object-contain p-1 group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="space-y-0.5">
+                    <h3 className="font-bold text-[11px] sm:text-xs text-[#06275B] line-clamp-2 group-hover:text-[#0755A5] transition-colors">
+                      {cert.title}
+                    </h3>
+                    <div className="flex justify-between items-center text-[10px] text-slate-500">
+                      <span className="font-medium text-[#1265B3]">{cert.issuer}</span>
+                      <span>{cert.date}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </section>
 
