@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X, ExternalLink, Mail, Phone, MapPin, Sparkles, GraduationCap, Briefcase, Code, Smartphone, Video, Award, ZoomIn, ShieldCheck } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ExternalLink, Mail, Phone, MapPin, Sparkles, GraduationCap, Briefcase, Code, Smartphone, Video, Award, ZoomIn, ShieldCheck, HeartHandshake } from "lucide-react";
 import Navbar from "../components/Navbar";
 
 // Interface for interactive modal previews
@@ -313,42 +313,21 @@ export default function PortfolioPage() {
             <span className="font-script text-2xl sm:text-3xl text-[#1265B3]">Hi, Everyone</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            {/* Left: Tentang Saya */}
-            <div className="md:col-span-5 bg-gradient-to-br from-[#0755A5] to-[#1265B3] text-white p-6 sm:p-7 rounded-2xl shadow-md border border-blue-400/20">
-              <div className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-semibold mb-3 tracking-wide">
-                Alea Atapasya
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            {/* KIRI: Tentang Saya (atas) & Pendidikan (bawah) */}
+            <div className="order-2 md:order-1 md:col-span-4 flex flex-col justify-between gap-4">
+              {/* Tentang Saya (Atas) */}
+              <div className="flex-1 bg-gradient-to-br from-[#0755A5] to-[#1265B3] text-white p-5 sm:p-6 rounded-2xl shadow-md border border-blue-400/20 flex flex-col justify-center">
+                <h2 className="text-xl sm:text-2xl font-bold font-display mb-2.5 text-white">
+                  Tentang Saya
+                </h2>
+                <p className="text-xs sm:text-[13px] leading-relaxed text-blue-50/95 text-justify">
+                  Saya merupakan lulusan D3 Rekayasa Perangkat Lunak Aplikasi dari Telkom University. Saya memiliki pengalaman dalam UI/UX Design, Front-End Development, desain grafis, serta pembuatan dan pengeditan konten digital melalui pengalaman proyek, organisasi, magang, dan freelance. Saya terbiasa merancang antarmuka aplikasi dan website, membuat materi visual untuk kebutuhan promosi dan media sosial, serta mengembangkan konten foto dan video yang menarik. Selain itu, saya memiliki kemampuan dalam koordinasi tim, manajemen waktu, dan penyelesaian tugas sesuai target. Saya merupakan pribadi yang teliti, adaptif, bertanggung jawab, dan memiliki semangat belajar yang tinggi. Saya tertarik untuk terus mengembangkan kompetensi di bidang desain digital, pengembangan antarmuka, dan produksi konten kreatif.
+                </p>
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold font-display mb-3 text-white">
-                Tentang Saya
-              </h2>
-              <p className="text-xs sm:text-sm leading-relaxed text-blue-50/95 text-justify">
-                Saya merupakan lulusan D3 Rekayasa Perangkat Lunak Aplikasi dari Telkom University. Saya memiliki pengalaman dalam UI/UX Design, Front-End Development, desain grafis, serta pembuatan dan pengeditan konten digital melalui pengalaman proyek, organisasi, magang, dan freelance. Saya terbiasa merancang antarmuka aplikasi dan website, membuat materi visual untuk kebutuhan promosi dan media sosial, serta mengembangkan konten foto dan video yang menarik. Selain itu, saya memiliki kemampuan dalam koordinasi tim, manajemen waktu, dan penyelesaian tugas sesuai target. Saya merupakan pribadi yang teliti, adaptif, bertanggung jawab, dan memiliki semangat belajar yang tinggi. Saya tertarik untuk terus mengembangkan kompetensi di bidang desain digital, pengembangan antarmuka, dan produksi konten kreatif.
 
-              </p>
-            </div>
-
-            {/* Center: Foto Profil */}
-            <div className="md:col-span-3 flex justify-center">
-              <div className="relative group">
-                <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#1265B3] to-[#8CC6EE] opacity-60 blur-md group-hover:opacity-100 transition duration-300"></div>
-                <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-[#EAF5FF] w-52 h-72 sm:w-56 sm:h-80">
-                  <Image
-                    src="/images/profile/alea_avatar.png"
-                    alt="Alea Atapasya"
-                    fill
-                    sizes="(max-width: 768px) 208px, 224px"
-                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Pendidikan & Tools */}
-            <div className="md:col-span-4 space-y-4">
-              {/* Education */}
-              <div className="bg-[#EAF5FF] p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm">
+              {/* Pendidikan (Bawah) */}
+              <div className="bg-[#EAF5FF] p-4 sm:p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm">
                 <div className="flex items-center gap-2 text-[#06275B] font-bold text-base mb-2">
                   <GraduationCap className="text-[#1265B3]" size={20} />
                   <span>Education</span>
@@ -364,38 +343,96 @@ export default function PortfolioPage() {
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Tools */}
-              <div className="bg-[#EAF5FF] p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm">
-                <div className="text-[#06275B] font-bold text-base mb-3 flex items-center gap-2">
+            {/* TENGAH: Foto Profil */}
+            <div className="order-1 md:order-2 md:col-span-4 flex items-center justify-center">
+              <div className="relative group flex items-center justify-center w-full">
+                {/* Soft ambient aura blur behind portrait */}
+                <div className="absolute w-60 h-80 sm:w-72 sm:h-96 bg-gradient-to-tr from-[#1265B3]/25 via-[#8CC6EE]/35 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-110 transition-transform duration-700"></div>
+
+                {/* Clean cutout with artistic floating glow, no box border, no container background */}
+                <div className="relative w-56 h-80 sm:w-64 sm:h-[420px] flex items-end justify-center">
+                  <Image
+                    src="/images/profile/alea_avatar.png"
+                    alt="Alea Atapasya"
+                    fill
+                    sizes="(max-width: 768px) 240px, 280px"
+                    className="object-contain object-bottom drop-shadow-[0_12px_24px_rgba(7,85,165,0.22)] group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* KANAN: Tools (atas) & Soft Skill (bawah) */}
+            <div className="order-3 md:order-3 md:col-span-4 flex flex-col justify-between gap-4">
+              {/* Tools (Atas) */}
+              <div className="bg-[#EAF5FF] p-4 sm:p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm">
+                <div className="text-[#06275B] font-bold text-base mb-2.5 flex items-center gap-2">
                   <Code className="text-[#1265B3]" size={18} />
                   <span>Tools</span>
                 </div>
-                <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="grid grid-cols-4 gap-2 text-center">
                   {[
                     { name: "VS Code", logo: "/images/tools/vscode.png", bg: "hover:border-sky-400" },
+                    { name: "Github", logo: "/images/tools/github.png", bg: "hover:border-black" },
+                    { name: "XAMPP", logo: "/images/tools/xampp.png", bg: "hover:border-orange-400" },
                     { name: "Figma", logo: "/images/tools/figma.png", bg: "hover:border-purple-400" },
+                    { name: "Notion", logo: "/images/tools/notion.png", bg: "hover:border-gray-400" },
+                    { name: "Trello", logo: "/images/tools/trello.jpg", bg: "hover:border-blue-400" },
                     { name: "Canva", logo: "/images/tools/canva.png", bg: "hover:border-blue-400" },
                     { name: "CapCut", logo: "/images/tools/capcut.png", bg: "hover:border-slate-400" },
                     { name: "Google Workspace", logo: "/images/tools/google_workspace.png", bg: "hover:border-emerald-400" },
-                    { name: "Microsoft Office", logo: "/images/tools/microsoft_office.png", bg: "hover:border-orange-400" },
+                    { name: "Microsoft Excel", logo: "/images/tools/excel.jpg", bg: "hover:border-green-400" },
+                    { name: "Microsoft Word", logo: "/images/tools/word.jpg", bg: "hover:border-blue-400" },
+                    { name: "Microsoft PPT", logo: "/images/tools/ppt.jpg", bg: "hover:border-orange-400" },
                   ].map((tool) => (
                     <div
                       key={tool.name}
-                      className={`group p-2.5 rounded-xl bg-white border border-[#8CC6EE]/30 shadow-xs hover:shadow-md ${tool.bg} hover:scale-105 transition-all duration-200 flex flex-col items-center justify-center gap-1.5 cursor-pointer`}
+                      className={`group p-1.5 sm:p-2 rounded-xl bg-white border border-[#8CC6EE]/30 shadow-xs hover:shadow-md ${tool.bg} hover:scale-105 transition-all duration-200 flex flex-col items-center justify-center gap-1 cursor-pointer`}
                       title={tool.name}
                     >
-                      <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center">
+                      <div className="relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center">
                         <Image
                           src={tool.logo}
                           alt={tool.name}
                           fill
-                          sizes="40px"
+                          sizes="32px"
                           className="object-contain transition-transform group-hover:scale-110"
                         />
                       </div>
-                      <span className="text-[10px] sm:text-[11px] font-semibold text-slate-700 group-hover:text-[#0755A5] transition-colors leading-tight line-clamp-1">
+                      <span className="text-[9px] sm:text-[10px] font-semibold text-slate-700 group-hover:text-[#0755A5] transition-colors leading-tight line-clamp-1">
                         {tool.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Soft Skill (Bawah) */}
+              <div className="bg-[#EAF5FF] p-4 sm:p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm flex-1 flex flex-col justify-center">
+                <div className="text-[#06275B] font-bold text-base mb-2.5 flex items-center gap-2">
+                  <HeartHandshake className="text-[#1265B3]" size={18} />
+                  <span>Soft Skills</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-center">
+                  {[
+                    "Komunikasi",
+                    "Penyelesaian Masalah",
+                    "Kerja Sama Tim",
+                    "Kepemimpinan",
+                    "Manajemen Waktu",
+                    "Adaptif",
+                    "Disiplin",
+                    "Manajemen Proyek"
+                  ].map((skill) => (
+                    <div
+                      key={skill}
+                      className="p-2 sm:p-2.5 rounded-xl bg-white border border-[#8CC6EE]/30 shadow-xs hover:shadow-md hover:border-[#1265B3]/50 hover:bg-blue-50/40 hover:scale-[1.02] transition-all duration-200 flex items-center justify-center text-center cursor-default"
+                    >
+                      <span className="text-[11px] sm:text-xs font-semibold text-[#0755A5]">
+                        {skill}
                       </span>
                     </div>
                   ))}

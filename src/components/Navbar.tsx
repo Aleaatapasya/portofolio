@@ -23,9 +23,6 @@ export default function Navbar() {
     { name: "Tentang", href: "#tentang" },
     { name: "Pengalaman", href: "#pengalaman" },
     { name: "Proyek", href: "#proyek" },
-    { name: "Poster", href: "#poster" },
-    { name: "Social Media", href: "#social-media" },
-    { name: "Video", href: "#video" },
     { name: "Sertifikat", href: "#sertifikat" },
     { name: "HKI", href: "#hki" },
     { name: "Kontak", href: "#kontak" },
@@ -42,11 +39,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-[#06275B]/90 backdrop-blur-md shadow-lg py-2.5"
           : "bg-transparent py-3"
-      }`}
+        }`}
     >
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 flex items-center justify-between">
         {/* Brand */}
