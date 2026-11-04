@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, X, ExternalLink, Mail, Phone, MapPin, Sparkles, GraduationCap, Briefcase, Code, Smartphone, Video, Award, ZoomIn, ShieldCheck, HeartHandshake, Languages } from "lucide-react";
 import Navbar from "../components/Navbar";
 
-// Interface for interactive modal previews
 interface ModalItem {
   title: string;
   category?: string;
@@ -16,19 +15,15 @@ interface ModalItem {
 
 // Poster items
 const posters = [
-  { id: 1, title: "Apasih Bedanya", img: "/images/posters/p1_apasih_bedanya.png" },
+  { id: 1, title: "Apasih Bedanya", img: "/images/posters/stopinsecure.png" },
   { id: 2, title: "Less Screen Time, More Real Life", img: "/images/posters/p2_detoks_digital.png" },
   { id: 3, title: "Yuk, Belajar Mengelola Uang", img: "/images/posters/p3_kelola_uang.png" },
-  { id: 4, title: "Stop Cyberbullying!", img: "/images/posters/p4_cyberbullying.png" },
-  { id: 5, title: "Stop Boros, Mulai Cerdas!", img: "/images/posters/p5_stop_boros.png" },
-  { id: 6, title: "Jaga Bumi, Jaga Masa Depan", img: "/images/posters/p6_jaga_bumi.png" },
-  { id: 7, title: "Lawan Malas, Gas Produktif!", img: "/images/posters/p7_lawan_malas.png" },
-  { id: 8, title: "Poster Event", img: "/images/posters/p8_poster_event.png" },
-  { id: 9, title: "Poster Lomba", img: "/images/posters/p9_poster_lomba.png" },
-  { id: 10, title: "Hari Raya Idul Fitri", img: "/images/posters/p10_poster_idulfitri.png" },
-  { id: 11, title: "Selamat Hari Raya Nyepi", img: "/images/posters/p11_nyepi.png" },
-  { id: 12, title: "Dirgahayu Indonesia", img: "/images/posters/p12_dirgahayu.png" },
-  { id: 13, title: "Selamat Hari Pahlawan", img: "/images/posters/p13_pahlawan.png" },
+  { id: 4, title: "Jaga Bumi, Jaga Masa Depan", img: "/images/posters/p6_jaga_bumi.png" },
+  { id: 5, title: "Lawan Malas, Gas Produktif!", img: "/images/posters/p7_lawan_malas.png" },
+  { id: 6, title: "Poster Lomba", img: "/images/posters/p9_poster_lomba.png" },
+  { id: 7, title: "Selamat Hari Raya Nyepi", img: "/images/posters/p11_nyepi.png" },
+  { id: 8, title: "Dirgahayu Indonesia", img: "/images/posters/p12_dirgahayu.png" },
+  { id: 9, title: "Selamat Hari Pahlawan", img: "/images/posters/p13_pahlawan.png" },
 ];
 
 // Certificates list
@@ -63,40 +58,46 @@ const certificates = [
   },
   {
     id: 5,
+    title: "English Proficiency Test",
+    issuer: "Telkom University Language Center",
+    date: "Januari 2026",
+    img: "/images/certificates/eprt.png",
+  },
+  {
+    id: 6,
     title: "Fundamental Front-End Web Development",
     issuer: "Coding Studio",
     date: "Juni 2024",
     img: "/images/certificates/cert_05_coding_studio.png",
   },
   {
-    id: 6,
+    id: 7,
     title: "Belajar Dasar Pemrograman Web",
     issuer: "Dicoding Indonesia",
     date: "Juni 2024",
     img: "/images/certificates/cert_06_dicoding.png",
   },
   {
-    id: 7,
+    id: 8,
     title: "Web Development for Beginner: HTML hingga Fullstack",
     issuer: "Edspert.id",
     date: "Februari 2024",
     img: "/images/certificates/cert_09_edspert.png",
   },
   {
-    id: 8,
+    id: 9,
     title: "CSS Dasar ",
     issuer: "Skilvul",
     date: "Agustus 2023",
     img: "/images/certificates/cert_07_skilvul_css.png",
   },
   {
-    id: 9,
+    id: 10,
     title: "HTML Dasar",
     issuer: "Skilvul",
     date: "Agustus 2023",
     img: "/images/certificates/cert_08_skilvul_html.png",
   },
-  ,
 ];
 
 // Web Dev & UI/UX Projects
@@ -119,14 +120,14 @@ const webProjects: ModalItem[] = [
     title: "JIKU Layanan Konsultasi Psikolog Online - Mata Kuliah Proyek Tingkat 1",
     category: "WEB DEVELOPER • FRONT-END",
     period: "Oktober 2024 – Desember 2024",
-    desc: "Mengimplementasikan desain UI/UX ke dalam aplikasi web JiwaKu sebagai Front-End Developer, yang berfokus pada layanan pemesanan dan penjadwalan konsultasi psikolog secara online. Mengembangkan antarmuka web yang interaktif dan responsif sesuai kebutuhan pengguna.",
+    desc: "Mengembangkan antarmuka aplikasi web konsultasi psikolog dengan 3 role pengguna, yaitu Psikolog, Pasien, dan Admin. Mengimplementasikan desain UI menjadi tampilan website yang interaktif dan responsif untuk mendukung pemesanan serta penjadwalan konsultasi.",
     img: "/images/projects/jiku_preview.png",
   },
   {
     title: "YuBeli Order Food & Drink - Proyek Mata Kuliah Pemrograman Berbasis Objek",
     category: "WEB DEVELOPER • UI/UX DESIGNER & FRONT-END",
     period: "Desember 2023 – Januari 2024",
-    desc: "Mengimplementasikan desain UI/UX ke dalam aplikasi YuBeli sebagai Front-End Developer untuk mendukung proses transaksi kasir dan pengelolaan produk secara digital dan efisien.",
+    desc: "Mengembangkan antarmuka aplikasi kasir YuBeli sebagai Front-End Developer dengan 2 fungsi utama, yaitu transaksi penjualan dan pengelolaan produk. Mengimplementasikan desain UI/UX ke dalam aplikasi dengan tampilan yang interaktif dan mudah digunakan.",
     img: "/images/projects/yubeli_preview.png",
   },
   {
@@ -286,16 +287,16 @@ export default function PortfolioPage() {
 
             {/* Role Badges */}
             <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3 max-w-3xl mx-auto">
-              <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#06275B]/70 border border-[#8CC6EE]/40 backdrop-blur-md shadow-sm hover:scale-105 transition-transform">
+              <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#0755A5]/80 border border-[#8CC6EE]/40 backdrop-blur-md shadow-sm hover:scale-105 transition-transform">
                 Front-End Developer
               </span>
               <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#0755A5]/80 border border-[#8CC6EE]/40 backdrop-blur-md shadow-sm hover:scale-105 transition-transform">
                 Digital Design
               </span>
-              <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#1265B3]/80 border border-[#8CC6EE]/40 backdrop-blur-md shadow-sm hover:scale-105 transition-transform">
+              <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#0755A5]/80 border border-[#8CC6EE]/40 backdrop-blur-md shadow-sm hover:scale-105 transition-transform">
                 Video Editing
               </span>
-              <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#06275B]/70 border border-[#8CC6EE]/40 backdrop-blur-md shadow-sm hover:scale-105 transition-transform">
+              <span className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#0755A5]/80 border border-[#8CC6EE]/40 backdrop-blur-md shadow-sm hover:scale-105 transition-transform">
                 Social Media Talent
               </span>
             </div>
@@ -532,7 +533,7 @@ export default function PortfolioPage() {
               <div className="h-full rounded-2xl overflow-hidden border-2 border-[#8CC6EE]/50 shadow-md bg-white p-2.5 flex flex-col justify-between">
                 <div className="relative w-full flex-1 rounded-xl overflow-hidden">
                   <Image
-                    src="/images/experience/experience_collage.png"
+                    src="/images/experience/work-experience.png"
                     alt="Dokumentasi Kegiatan dan Pengalaman Alea Atapasya"
                     fill
                     sizes="(max-width: 1024px) 100vw, 550px"
