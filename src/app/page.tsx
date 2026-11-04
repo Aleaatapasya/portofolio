@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, X, ExternalLink, Mail, Phone, MapPin, Sparkles, GraduationCap, Briefcase, Code, Smartphone, Video, Award, ZoomIn, ShieldCheck, HeartHandshake } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ExternalLink, Mail, Phone, MapPin, Sparkles, GraduationCap, Briefcase, Code, Smartphone, Video, Award, ZoomIn, ShieldCheck, HeartHandshake, Languages } from "lucide-react";
 import Navbar from "../components/Navbar";
 
 // Interface for interactive modal previews
@@ -303,77 +303,57 @@ export default function PortfolioPage() {
         </section>
 
         {/* ========================================================
-            SECTION 2: TENTANG SAYA, FOTO PROFIL, PENDIDIKAN & TOOLS
+            SECTION 2: TENTANG SAYA, FOTO PROFIL, TOOLS, PENDIDIKAN, SKILLS
             ======================================================== */}
         <section
           id="tentang"
-          className="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-panel border border-[#8CC6EE]/30"
+          className="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-panel border border-[#8CC6EE]/30 space-y-6"
         >
-          <div className="flex items-center gap-2 text-[#0755A5] mb-5">
-            <span className="font-script text-2xl sm:text-3xl text-[#1265B3]">Hi, Everyone</span>
+          {/* Header Bar */}
+          <div className="text-center">
+            <span className="font-display font-extrabold text-sm sm:text-base tracking-widest text-[#0755A5] uppercase">
+              HI, EVERYONE
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-            {/* KIRI: Tentang Saya (atas) & Pendidikan (bawah) */}
-            <div className="order-2 md:order-1 md:col-span-4 flex flex-col justify-between gap-4">
-              {/* Tentang Saya (Atas) */}
-              <div className="flex-1 bg-gradient-to-br from-[#0755A5] to-[#1265B3] text-white p-5 sm:p-6 rounded-2xl shadow-md border border-blue-400/20 flex flex-col justify-center">
-                <h2 className="text-xl sm:text-2xl font-bold font-display mb-2.5 text-white">
-                  Tentang Saya
-                </h2>
-                <p className="text-xs sm:text-[13px] leading-relaxed text-blue-50/95 text-justify">
-                  Saya merupakan lulusan D3 Rekayasa Perangkat Lunak Aplikasi dari Telkom University. Saya memiliki pengalaman dalam UI/UX Design, Front-End Development, desain grafis, serta pembuatan dan pengeditan konten digital melalui pengalaman proyek, organisasi, magang, dan freelance. Saya terbiasa merancang antarmuka aplikasi dan website, membuat materi visual untuk kebutuhan promosi dan media sosial, serta mengembangkan konten foto dan video yang menarik. Selain itu, saya memiliki kemampuan dalam koordinasi tim, manajemen waktu, dan penyelesaian tugas sesuai target. Saya merupakan pribadi yang teliti, adaptif, bertanggung jawab, dan memiliki semangat belajar yang tinggi. Saya tertarik untuk terus mengembangkan kompetensi di bidang desain digital, pengembangan antarmuka, dan produksi konten kreatif.
-                </p>
-              </div>
+          {/* BARIS 1: 3 Kolom Sejajar (Tentang Saya | Foto Alea | Tools) */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
+            {/* Kiri: Tentang Saya */}
+            <div className="md:col-span-4 bg-gradient-to-br from-[#0755A5] to-[#1265B3] text-white p-6 sm:p-7 rounded-3xl shadow-md border border-blue-400/20 flex flex-col justify-center">
+              <h2 className="text-xl sm:text-2xl font-bold font-display mb-3 text-white">
+                Tentang Saya
+              </h2>
+              <p className="text-xs sm:text-[13px] leading-relaxed text-blue-50/95 text-justify">
+                Lulusan D3 Rekayasa Perangkat Lunak Aplikasi dari Telkom University yang aktif terlibat dalam berbagai proyek, organisasi, dan kegiatan magang. Memiliki pengalaman dalam perancangan UI/UX Design serta pengembangan antarmuka website (Front-End Development), mulai dari analisis kebutuhan pengguna, perancangan user experience (UX), pembuatan user interface (UI), hingga implementasi desain ke dalam website. Terbiasa menggunakan tools seperti Figma, HTML, CSS, Bootstrap, dan Laravel Blade. Memiliki kemampuan berpikir analitis, problem solving, serta ketelitian dalam mengembangkan antarmuka yang responsif dan mudah digunakan. Tertarik untuk terus mengembangkan karier di bidang UI/UX Design dan Front-End Development, serta terbuka untuk mempelajari hal-hal baru dan mengembangkan kemampuan di bidang teknologi informasi (IT) lainnya.
+              </p>
+            </div>
 
-              {/* Pendidikan (Bawah) */}
-              <div className="bg-[#EAF5FF] p-4 sm:p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm">
-                <div className="flex items-center gap-2 text-[#06275B] font-bold text-base mb-2">
-                  <GraduationCap className="text-[#1265B3]" size={20} />
-                  <span>Education</span>
-                </div>
-                <div className="space-y-1 text-xs sm:text-sm">
-                  <div className="font-bold text-[#0755A5] text-sm">Universitas Telkom</div>
-                  <div className="text-slate-600">D3 Rekayasa Perangkat Lunak Aplikasi</div>
-                  <div className="flex justify-between text-xs text-slate-500 pt-1.5 border-t border-[#8CC6EE]/30">
-                    <span>2023 - 2026</span>
-                    <span className="font-semibold text-[#0755A5] bg-white px-2.5 py-0.5 rounded-full border border-[#8CC6EE]/50">
-                      IPK 3.91
-                    </span>
-                  </div>
-                </div>
+            {/* Tengah: Foto Profil Alea (Besar mengisi penuh kotak secara proporsional) */}
+            <div className="md:col-span-4 bg-[#EAF5FF] rounded-3xl border border-[#8CC6EE]/40 p-0 flex flex-col items-center justify-end shadow-sm relative overflow-hidden group min-h-[380px] sm:min-h-[420px]">
+              {/* Glow latar */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-tr from-[#1265B3]/25 via-[#8CC6EE]/35 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-110 transition-transform duration-700"></div>
+
+              {/* Area Gambar Potret mengisi penuh kotak */}
+              <div className="relative w-full h-full min-h-[360px] sm:min-h-[400px] flex items-end justify-center">
+                <Image
+                  src="/images/profile/alea_avatar.png"
+                  alt="Alea Atapasya"
+                  fill
+                  sizes="(max-width: 768px) 320px, 380px"
+                  className="object-contain object-bottom drop-shadow-[0_14px_28px_rgba(7,85,165,0.25)] group-hover:scale-105 transition-transform duration-500"
+                  priority
+                />
               </div>
             </div>
 
-            {/* TENGAH: Foto Profil */}
-            <div className="order-1 md:order-2 md:col-span-4 flex items-center justify-center">
-              <div className="relative group flex items-center justify-center w-full">
-                {/* Soft ambient aura blur behind portrait */}
-                <div className="absolute w-60 h-80 sm:w-72 sm:h-96 bg-gradient-to-tr from-[#1265B3]/25 via-[#8CC6EE]/35 to-transparent rounded-full blur-2xl pointer-events-none group-hover:scale-110 transition-transform duration-700"></div>
-
-                {/* Clean cutout with artistic floating glow, no box border, no container background */}
-                <div className="relative w-56 h-80 sm:w-64 sm:h-[420px] flex items-end justify-center">
-                  <Image
-                    src="/images/profile/alea_avatar.png"
-                    alt="Alea Atapasya"
-                    fill
-                    sizes="(max-width: 768px) 240px, 280px"
-                    className="object-contain object-bottom drop-shadow-[0_12px_24px_rgba(7,85,165,0.22)] group-hover:scale-105 transition-transform duration-500"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* KANAN: Tools (atas) & Soft Skill (bawah) */}
-            <div className="order-3 md:order-3 md:col-span-4 flex flex-col justify-between gap-4">
-              {/* Tools (Atas) */}
-              <div className="bg-[#EAF5FF] p-4 sm:p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm">
-                <div className="text-[#06275B] font-bold text-base mb-2.5 flex items-center gap-2">
-                  <Code className="text-[#1265B3]" size={18} />
+            {/* Kanan: Tools */}
+            <div className="md:col-span-4 bg-[#EAF5FF] p-5 sm:p-6 rounded-3xl border border-[#8CC6EE]/40 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="text-[#06275B] font-bold text-lg mb-3 flex items-center gap-2">
+                  <Code className="text-[#1265B3]" size={20} />
                   <span>Tools</span>
                 </div>
-                <div className="grid grid-cols-4 gap-2 text-center">
+                <div className="grid grid-cols-4 gap-2.5 text-center">
                   {[
                     { name: "VS Code", logo: "/images/tools/vscode.png", bg: "hover:border-sky-400" },
                     { name: "Github", logo: "/images/tools/github.png", bg: "hover:border-black" },
@@ -390,10 +370,10 @@ export default function PortfolioPage() {
                   ].map((tool) => (
                     <div
                       key={tool.name}
-                      className={`group p-1.5 sm:p-2 rounded-xl bg-white border border-[#8CC6EE]/30 shadow-xs hover:shadow-md ${tool.bg} hover:scale-105 transition-all duration-200 flex flex-col items-center justify-center gap-1 cursor-pointer`}
+                      className={`group p-2 rounded-2xl bg-white border border-[#8CC6EE]/30 shadow-xs hover:shadow-md ${tool.bg} hover:scale-105 transition-all duration-200 flex flex-col items-center justify-center gap-1 cursor-pointer`}
                       title={tool.name}
                     >
-                      <div className="relative w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center">
+                      <div className="relative w-8 h-8 flex items-center justify-center">
                         <Image
                           src={tool.logo}
                           alt={tool.name}
@@ -402,40 +382,81 @@ export default function PortfolioPage() {
                           className="object-contain transition-transform group-hover:scale-110"
                         />
                       </div>
-                      <span className="text-[9px] sm:text-[10px] font-semibold text-slate-700 group-hover:text-[#0755A5] transition-colors leading-tight line-clamp-1">
+                      <span className="text-[9px] font-semibold text-slate-700 group-hover:text-[#0755A5] transition-colors leading-tight line-clamp-1">
                         {tool.name}
                       </span>
                     </div>
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Soft Skill (Bawah) */}
-              <div className="bg-[#EAF5FF] p-4 sm:p-5 rounded-2xl border border-[#8CC6EE]/40 shadow-sm flex-1 flex flex-col justify-center">
-                <div className="text-[#06275B] font-bold text-base mb-2.5 flex items-center gap-2">
-                  <HeartHandshake className="text-[#1265B3]" size={18} />
-                  <span>Soft Skills</span>
+          {/* BARIS 2: Panel Bawah (Education | Soft Skills | Language Skills) */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
+            {/* Kiri Bawah: Education */}
+            <div className="md:col-span-4 bg-white p-5 sm:p-6 rounded-3xl border border-[#8CC6EE]/40 shadow-sm flex flex-col justify-center">
+              <div className="flex items-center gap-2 text-[#06275B] font-bold text-base mb-2">
+                <GraduationCap className="text-[#1265B3]" size={22} />
+                <span>Education</span>
+              </div>
+              <div className="space-y-1 text-xs sm:text-sm">
+                <div className="font-bold text-[#0755A5] text-sm sm:text-base">Universitas Telkom</div>
+                <div className="text-slate-600 font-medium">D3 Rekayasa Perangkat Lunak Aplikasi</div>
+                <div className="flex justify-between items-center text-xs text-slate-500 pt-2 border-t border-[#8CC6EE]/30 mt-1">
+                  <span>2023 - 2026</span>
+                  <span className="font-semibold text-[#0755A5] bg-[#EAF5FF] px-2.5 py-0.5 rounded-full border border-[#8CC6EE]/50">
+                    IPK 3.91
+                  </span>
                 </div>
-                <div className="grid grid-cols-2 gap-2 text-center">
-                  {[
-                    "Komunikasi",
-                    "Penyelesaian Masalah",
-                    "Kerja Sama Tim",
-                    "Kepemimpinan",
-                    "Manajemen Waktu",
-                    "Adaptif",
-                    "Disiplin",
-                    "Manajemen Proyek"
-                  ].map((skill) => (
-                    <div
-                      key={skill}
-                      className="p-2 sm:p-2.5 rounded-xl bg-white border border-[#8CC6EE]/30 shadow-xs hover:shadow-md hover:border-[#1265B3]/50 hover:bg-blue-50/40 hover:scale-[1.02] transition-all duration-200 flex items-center justify-center text-center cursor-default"
-                    >
-                      <span className="text-[11px] sm:text-xs font-semibold text-[#0755A5]">
-                        {skill}
-                      </span>
-                    </div>
-                  ))}
+              </div>
+            </div>
+
+            {/* Tengah Bawah: Soft Skills (Sejajar di bawah Foto) */}
+            <div className="md:col-span-4 bg-white p-5 sm:p-6 rounded-3xl border border-[#8CC6EE]/40 shadow-sm flex flex-col justify-center">
+              <div className="flex items-center gap-2 text-[#06275B] font-bold text-base mb-2.5">
+                <HeartHandshake className="text-[#1265B3]" size={22} />
+                <span>Soft Skills</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2 text-center">
+                {[
+                  "Komunikasi",
+                  "Penyelesaian Masalah",
+                  "Koordinasi Team",
+                  "Kepemimpinan",
+                  "Manajemen Waktu",
+                  "Adaptif",
+                ].map((skill) => (
+                  <div
+                    key={skill}
+                    className="p-2 rounded-xl bg-[#EAF5FF]/60 border border-[#8CC6EE]/30 shadow-xs hover:shadow-sm hover:border-[#1265B3]/50 hover:bg-[#EAF5FF] transition-all duration-200 flex items-center justify-center text-center cursor-default"
+                  >
+                    <span className="text-[11px] sm:text-xs font-semibold text-[#0755A5]">
+                      {skill}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Kanan Bawah: Language Skills (Tepat di bawah Tools) */}
+            <div className="md:col-span-4 bg-white p-5 sm:p-6 rounded-3xl border border-[#8CC6EE]/40 shadow-sm flex flex-col justify-center">
+              <div className="flex items-center gap-2 text-[#06275B] font-bold text-base mb-2.5">
+                <Languages className="text-[#1265B3]" size={22} />
+                <span>Language Skill</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2.5">
+                <div className="p-3 rounded-2xl bg-[#EAF5FF]/60 border border-[#8CC6EE]/30 flex flex-col items-center justify-center text-center gap-1">
+                  <span className="text-xs font-bold text-[#06275B]">Indonesia</span>
+                  <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                    Fasih
+                  </span>
+                </div>
+                <div className="p-3 rounded-2xl bg-[#EAF5FF]/60 border border-[#8CC6EE]/30 flex flex-col items-center justify-center text-center gap-1">
+                  <span className="text-xs font-bold text-[#06275B]">Inggris</span>
+                  <span className="text-[11px] font-semibold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
+                    Dasar
+                  </span>
                 </div>
               </div>
             </div>
@@ -455,10 +476,10 @@ export default function PortfolioPage() {
             </div>
             <div>
               <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#06275B]">
-                Experience
+                Work Experience
               </h2>
               <p className="text-xs sm:text-sm text-slate-500">
-                Riwayat organisasi, kepanitiaan, dan pengabdian masyarakat
+                Riwayat Magang dan Freelance
               </p>
             </div>
           </div>
@@ -468,47 +489,24 @@ export default function PortfolioPage() {
             <div className="lg:col-span-7 h-[430px] sm:h-[480px] overflow-y-auto pr-2 space-y-3.5 scrollbar-thin scrollbar-thumb-[#8CC6EE] scrollbar-track-[#EAF5FF]">
               {[
                 {
-                  role: "Wakil Kepala Departemen Eksternal",
-                  org: "Himpunan D3 RPLA",
-                  period: "Februari 2025 - November 2025",
-                  desc: "Menjadi wakil ketua pelaksana kunjungan industri 2025 serta mengoordinasikan kegiatan studi banding, bina desa, Dira Mengabdi, dan charity. Turut menjadi mentor Bina Desa serta berkontribusi dalam penyusunan proposal PPK Ormawa 2025.",
+                  role: "Web Developer (UI/UX & Front-End Developer) - Internship",
+                  org: "Research Alliance Ko+Lab  ",
+                  period: "Agustus 2025 – Juli 2026",
+                  desc: "Menganalisis kebutuhan pengguna serta merancang UX dan UI untuk 2 fitur utama website, yaitu Event dan Admin Event. Mengimplementasikan desain antarmuka ke dalam front-end menggunakan Laravel Blade dan Bootstrap, serta melakukan UAT bersama tim admin dan 30 partisipan dengan hasil 99% pengguna menyatakan fitur mudah digunakan. Berkolaborasi dalam perencanaan dan pengelolaan proyek, meliputi koordinasi tim, pembagian tugas, serta pemantauan timeline dan target pekerjaan.",
                 },
                 {
-                  role: "Panitia Pengabdian Masyarakat Multicriteria DPPM 2025",
-                  org: "DPPM Telkom University",
-                  period: "Agustus - Desember 2025",
-                  desc: "Terlibat dalam perencanaan, pelaksanaan, dokumentasi, serta pengelolaan data kegiatan Pengabdian kepada Masyarakat sebagai bahan penyusunan laporan dan paper ilmiah.",
-                },
-                {
-                  role: "Panitia Pengabdian Masyarakat AISINDO",
-                  org: "AISINDO",
+                  role: "Social Media Graphic Designer - Freelance",
+                  org: "AISINDO (Association for Information Systems Indonesia)",
                   period: "Februari 2025 - Juli 2026",
-                  desc: "Bertanggung jawab atas desain dan pengeditan poster publikasi digital, pembaruan informasi kegiatan pada website AISINDO, serta koordinasi revisi dan finalisasi konten visual bersama tim media sosial.",
+                  desc: "Mendesain 34 materi publikasi digital AISINDO, meliputi poster event, hari besar, ucapan selamat, dan virtual background Zoom. Memperbarui dan mempublikasikan informasi 17 kegiatan melalui website AISINDO.",
                 },
                 {
-                  role: "Panitia Pengabdian Masyarakat Cibiru Wetan",
-                  org: "Pengabdian Masyarakat Cibiru Wetan",
-                  period: "Januari 2024 - Juni 2025",
-                  desc: "Mendampingi masyarakat Desa Cibiru Wetan dalam penggunaan Google Workspace, membuat modul pelatihan serta desain banner dan sertifikat, dan mendokumentasikan serta mengedit video kegiatan.",
+                  role: "Asisten Praktikum Mata Kuliah Alat Bantu Desain Antarmuka",
+                  org: "Asisten Praktikum 2024 ",
+                  period: "November 2024 – Januari 2025 ",
+                  desc: "Membantu mengajarkan mahasiswa terkait mata kuliah Alat Bantu Desain Antarmuka, yang memiliki beberapa pembelajaran dalam menggunakan Figma, Adobe Photoshop, dan Adobe Illustrator ",
                 },
-                {
-                  role: "Panitia Acara PKKMB Prodi 2024",
-                  org: "PKKMB Prodi D3 RPLA",
-                  period: "September 2024 – November 2024",
-                  desc: "Bertanggung jawab menyusun konsep dan rundown acara PKKMB Prodi 2024, merancang dekorasi dan slogan sesuai tema, serta bertugas sebagai MC dan time keeper selama kegiatan berlangsung.",
-                },
-                {
-                  role: "Panitia Discipline & Motivation PKKMB Universitas 2024",
-                  org: "Panitia PKKMB Universitas Telkom 2024",
-                  period: "Juli 2024 – September 2024",
-                  desc: "Bertanggung jawab menjaga kedisiplinan peserta, mengatur ketertiban dan keamanan selama kegiatan PKKMB Universitas 2024, serta memastikan kegiatan berjalan sesuai aturan yang ditetapkan.",
-                },
-                {
-                  role: "Staff Departemen Pengabdian Masyarakat",
-                  org: "Himpunan D3 RPLA",
-                  period: "April 2024 - November 2024",
-                  desc: "Berkontribusi dalam penyusunan proposal POMN, memimpin pelaksanaan kegiatan charity, berpartisipasi dalam kegiatan bina desa, serta mengoordinasikan kegiatan FIT Connect melalui pembagian Jumat Berkah kepada masyarakat.",
-                },
+
               ].map((exp, idx) => (
                 <div
                   key={idx}
@@ -543,6 +541,99 @@ export default function PortfolioPage() {
                 </div>
 
               </div>
+            </div>
+          </div>
+        </section>
+        <section
+          className="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-panel border border-[#8CC6EE]/30"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2.5 rounded-xl bg-gradient-to-tr from-[#0755A5] to-[#1265B3] text-white shadow-md">
+              <Briefcase size={22} />
+            </div>
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#06275B]">
+                Organization Experience
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500">
+                Riwayat organisasi, kepanitiaan, dan pengabdian masyarakat
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            {/* Left Column: Documentation Collage */}
+            <div className="lg:col-span-5 h-[430px] sm:h-[480px]">
+              <div className="h-full rounded-2xl overflow-hidden border-2 border-[#8CC6EE]/50 shadow-md bg-white p-2.5 flex flex-col justify-between">
+                <div className="relative w-full flex-1 rounded-xl overflow-hidden">
+                  <Image
+                    src="/images/experience/experience_collage.png"
+                    alt="Dokumentasi Kegiatan dan Pengalaman Alea Atapasya"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 550px"
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Scrollable List to match collage height perfectly */}
+            <div className="lg:col-span-7 h-[430px] sm:h-[480px] overflow-y-auto pr-2 space-y-3.5 scrollbar-thin scrollbar-thumb-[#8CC6EE] scrollbar-track-[#EAF5FF]">
+              {[
+                {
+                  role: "Wakil Kepala Departemen Eksternal",
+                  org: "Himpunan D3 RPLA",
+                  period: "Februari 2025 - November 2025",
+                  desc: "Menjalin komunikasi dan membangun kerja sama dengan 6 himpunan mahasiswa, 2 perusahaan, dan 1 desa melalui kegiatan Studi Banding, Kunjungan Industri, dan Bina Desa. Bertanggung jawab dalam perencanaan dan koordinasi 6 kegiatan Studi Banding, 2 Company Visit, serta 4 kegiatan Charity berupa kunjungan panti asuhan, berbagi takjil, dan berbagi sahur. Selain itu, mengelola program Bina Desa di Desa Cibiru melalui 5 kegiatan pemberdayaan masyarakat serta berkontribusi dalam program PPK Ormawa hingga tahap seleksi nasional, meliputi penyusunan proposal, survei desa, dan persiapan program.",
+                },
+                {
+                  role: "Panitia Pengabdian Masyarakat Multicriteria DPPM 2025",
+                  org: "DPPM Telkom University",
+                  period: "Agustus - Desember 2025",
+                  desc: "Terlibat dalam perencanaan, pelaksanaan, dokumentasi, serta pengelolaan data kegiatan Pengabdian kepada Masyarakat sebagai bahan penyusunan laporan dan paper ilmiah.",
+                },
+                {
+                  role: "Panitia Pengabdian Masyarakat Cibiru Wetan",
+                  org: "Pengabdian Masyarakat Cibiru Wetan",
+                  period: "Januari 2024 - Juni 2025",
+                  desc: "Mendampingi sekitar 20 masyarakat Desa Cibiru Wetan dalam penggunaan Google Workspace melalui 2 kegiatan pengabdian kepada masyarakat. Menyusun 3 modul pelatihan, membuat 2 desain banner dan 2 video dokumentasi kegiatan, serta melakukan proses dokumentasi dan penyuntingan video.",
+                },
+                {
+                  role: "Panitia Acara PKKMB Prodi 2024",
+                  org: "PKKMB Prodi D3 RPLA",
+                  period: "September 2024 – November 2024",
+                  desc: "Bertanggung jawab menyusun konsep dan rundown acara PKKMB Prodi 2024, merancang dekorasi dan slogan sesuai tema, serta bertugas sebagai MC dan time keeper selama kegiatan berlangsung.",
+                },
+                {
+                  role: "Panitia Discipline & Motivation PKKMB Universitas 2024",
+                  org: "Panitia PKKMB Universitas Telkom 2024",
+                  period: "Juli 2024 – September 2024",
+                  desc: "Bertanggung jawab menjaga kedisiplinan, ketertiban, dan keamanan selama kegiatan PKKMB Universitas 2024 yang diikuti oleh 11.418 mahasiswa baru, serta memastikan seluruh rangkaian kegiatan berjalan sesuai aturan dan ketentuan yang ditetapkan.",
+                },
+                {
+                  role: "Staff Departemen Pengabdian Masyarakat",
+                  org: "Himpunan D3 RPLA",
+                  period: "April 2024 - November 2024",
+                  desc: "Berkontribusi dalam penyusunan proposal POMN, memimpin 1 kegiatan Charity sebagai ketua pelaksana, berpartisipasi dalam program Bina Desa, serta mengoordinasikan kegiatan FIT Connect melalui pelaksanaan program Jumat Berkah sebanyak 4 kali dengan membagikan makanan kepada masyarakat.",
+                },
+              ].map((exp, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-xl bg-[#EAF5FF]/80 hover:bg-[#EAF5FF] border border-[#8CC6EE]/40 transition-all hover:translate-x-1 duration-200"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                    <h3 className="font-bold text-sm sm:text-base text-[#0755A5]">
+                      {exp.org} – <span className="font-medium text-slate-800">{exp.role}</span>
+                    </h3>
+                    <span className="text-[11px] font-semibold text-[#1265B3] bg-white px-2.5 py-0.5 rounded-full border border-[#8CC6EE]/40 self-start sm:self-auto">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed text-justify">
+                    {exp.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -655,8 +746,7 @@ export default function PortfolioPage() {
             {[...posters, ...posters, ...posters].map((p, index) => (
               <div
                 key={`${p.id}-${index}`}
-                onClick={() => setActiveModal({ title: p.title, img: p.img, category: "POSTER & INFOGRAFIS" })}
-                className="flex-shrink-0 w-44 sm:w-56 md:w-64 aspect-[3/4.2] rounded-2xl overflow-hidden shadow-lg border-2 border-white/25 bg-[#06275B]/60 transition-all duration-300 transform hover:scale-105 hover:border-white hover:shadow-glow relative cursor-pointer group"
+                className="flex-shrink-0 w-44 sm:w-56 md:w-64 aspect-[3/4.2] rounded-2xl overflow-hidden shadow-lg border-2 border-white/25 bg-[#06275B]/60 transition-all duration-300 transform hover:scale-105 hover:border-white hover:shadow-glow relative group"
               >
                 <Image
                   src={p.img}
